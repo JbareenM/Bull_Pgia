@@ -76,6 +76,27 @@ int main() {
         for (uint i=0; i<100; ++i) {
             testcase.CHECK_EQUAL(play(randy, smarty, 4, 100) <= 10, true);  // smarty should always win in at most 10 turns!
         }
+        for (uint i=0; i<100; ++i) {
+            testcase.CHECK_EQUAL(play(randy, smarty, 4, 100) <= 10, true);  // smarty should always win in at most 10 turns!
+        }
+        for (uint i=0; i<100; ++i) {
+            testcase.CHECK_EQUAL(play(randy, smarty, 4, 100) <= 10, true);  // smarty should always win in at most 10 turns!
+        }
+        for (uint i=0; i<100; ++i) {
+            testcase.CHECK_EQUAL(play(randy, smarty, 4, 100) <= 10, true);  // smarty should always win in at most 10 turns!
+        }
+        for (uint i=0; i<100; ++i) {
+            testcase.CHECK_EQUAL(play(randy, smarty, 4, 100) <= 10, true);  // smarty should always win in at most 10 turns!
+        }
+        for (uint i=0; i<100; ++i) {
+            testcase.CHECK_EQUAL(play(randy, smarty, 4, 100) <= 10, true);  // smarty should always win in at most 10 turns!
+        }
+        for (uint i=0; i<100; ++i) {
+            testcase.CHECK_EQUAL(play(randy, smarty, 4, 100) <= 10, true);  // smarty should always win in at most 10 turns!
+        }
+        for (uint i=0; i<100; ++i) {
+            testcase.CHECK_EQUAL(play(randy, smarty, 4, 100) <= 10, true);  // smarty should always win in at most 10 turns!
+        }
         testcase.setname("Random chooser with smart guesser")
         .CHECK_EQUAL(play(randy, smarty, 4, 100) <= 10, true)
         .CHECK_EQUAL(play(randy, smarty, 4, 100) <= 10, true)
