@@ -10,13 +10,12 @@
 
 #include "Guesser.hpp"
 #include "calculate.hpp"
-#include <set>
-#include <iterator>
+#include <vector>
 #include <string>
 class SmartGuesser: public bullpgia::Guesser {
 private:
     std::string _lastGuess="";
-    std::set<std::string> vec;
+    std::vector<std::string> vec;
     std::string Convert_Guess(int);
 public:
     std::string guess() override;
@@ -26,4 +25,3 @@ public:
 
 
 #endif
-
