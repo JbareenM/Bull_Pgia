@@ -18,7 +18,6 @@ string SmartGuesser::guess() {
     auto i = vec.begin();
     advance(i, rnd);
     _lastGuess = *i;
-    cout<<_lastGuess<<endl;
     return _lastGuess;
 }
 
