@@ -14,6 +14,7 @@
 #include <string>
 
 using std::string,std::to_string,std::vector;
+
 string SmartGuesser::guess() {
     int r = rand() % vec.size();
     _lastGuess = vec[r];
