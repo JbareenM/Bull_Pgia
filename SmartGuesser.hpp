@@ -10,14 +10,19 @@
 
 #include "Guesser.hpp"
 #include "calculate.hpp"
-
+#include <vector>
+#include <string>
 class SmartGuesser: public bullpgia::Guesser {
-    public:
-        std::string guess() override;
-        void startNewGame(uint len) override;
-        void learn(bullpgia::Latest_Guess res) override;
+private:
+    std::string _lastGuess="";
+    std::vector<std::string> vec;
+    std::string Convert_Guess(int);
+public:
+    std::string guess() override;
+    void startNewGame(uint len) override;
+    void learn(bullpgia::Latest_Guess res) override;
 };
 
-void Convert_Guess(std::string,int);
+
 #endif
 
