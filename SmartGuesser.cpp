@@ -8,31 +8,31 @@
 #include "SmartGuesser.hpp"
 #include <stdlib.h>
 #include <math.h>
-#include <vector>
+#include <iostream>
+#include <cmath>
+
 using namespace std;
 
-string SmartGuesser::guess(){
-    if(vec.size()==0)
-        Convert_Guess(length);
-    else
-        _lastGuess=vec[0];
+string SmartGuesser::guess() {
+    int rnd = rand() % vec.size();
+    auto i = vec.begin();
+    advance(i, rnd);
+    _lastGuess = *i;
+    cout<<_lastGuess<<endl;
     return _lastGuess;
 }
-void SmartGuesser::learn(bullpgia::Latest_Guess s){
-    vector<string> _BullsVec;
-    string str1=to_string(s._Bulls)+","+to_string(s._Pgia);
-    for (int i = 0; i < vec.size(); i++){
-        bullpgia::Latest_Guess res = bullpgia::calculateBullAndPgia(_lastGuess, vec[i]);
-        string str=to_string(res._Bulls)+","+to_string(res._Pgia);
-        if (str==str1)
-            _BullsVec.push_back(vec[i]);
-    }
-    vec.clear();
-    vec = _BullsVec;
-    _lastGuess = _BullsVec[0];
-    _BullsVec.clear();
-}
 
+void SmartGuesser::learn(bullpgia::Latest_Guess s) {
+    string str1=to_string(s._Bulls)+","+to_string(s._Pgia);
+    for(auto i=vec.begin(); i!= vec.end();) {
+        bullpgia::Latest_Guess ans = bullpgia::calculateBullAndPgia(_lastGuess, *i);
+        string str=to_string(ans._Bulls)+","+to_string(ans._Pgia);
+        if(str1 != str)
+            i = vec.erase(i);
+        else
+            i++;
+    }
+}
 string SmartGuesser::Convert_Guess(int num){
     string str = to_string(num);
     int size = length - str.length();
@@ -46,7 +46,7 @@ void SmartGuesser::startNewGame(uint len){
     vec.clear();
     length = len;
     for (int i=0; i<pow(10.0,len); ++i){
-        vec.push_back(Convert_Guess(i));
+        vec.insert(Convert_Guess(i));
     }
     Convert_Guess(length);
 }
